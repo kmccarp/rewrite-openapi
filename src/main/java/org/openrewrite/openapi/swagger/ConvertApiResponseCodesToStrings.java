@@ -58,8 +58,7 @@ public class ConvertApiResponseCodesToStrings extends Recipe {
                     }
 
                     private Expression maybeReplaceResponseCodeTypeAndValue(Expression arg) {
-                        if (arg instanceof J.Assignment) {
-                            J.Assignment assignment = (J.Assignment) arg;
+                        if (arg instanceof J.Assignment assignment) {
                             boolean matchesField = assignment.getVariable() instanceof J.Identifier &&
                                                    "responseCode".equals(((J.Identifier) assignment.getVariable()).getSimpleName());
                             boolean usesNumberLiteral = assignment.getAssignment() instanceof J.Literal &&
